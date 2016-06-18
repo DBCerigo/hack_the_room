@@ -105,7 +105,7 @@ window.BFtObject= function () {
 							jQuery.event.trigger('touched', {"address":ipAddress,"x":messageObject["x"],"y":messageObject["y"]});						
 						}
 						try{
-					        buttonPressed();
+					        buttonPressed(messageObject);
 						}
 						catch(e)
 						{
