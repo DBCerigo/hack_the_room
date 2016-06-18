@@ -9,34 +9,15 @@ var num_leds = 150;
 
 function setColor(n, color) {
     var maxIntensity = 100,
-        r = color[0],
-        g = color[1],
-        b = color[2];
+        r = color.r,
+        g = color.g,
+        b = color.b;
 
     if (r > maxIntensity || g > maxIntensity || b > maxIntensity) {
         console.log('value must be between 0 and 100');
         return;
+    }
 
-    var r = 0,
-        g = 0,
-        b = 0;
-
-    if (color == 'red')
-    {
-        r = 100;
-    }
-    else if (color == 'blue')
-    {
-        b = 100;
-    }
-    else if (color == 'green')
-    {
-        g = 100;
-    }
-    else {
-        console.log('color must red, green or blue')
-        return
-    }
     element.setColorEmbedded(n, r, g, b, 'null');
 }
 
@@ -46,42 +27,28 @@ function setColorAll(color) {
     }
 }
 
-function setColors(min, max, color) {
-    for (; min < max; min++)
+function setColors(position, color) {
+    console.log("setColors", color.r);
+
+    var i,
+        width = 5;
+
+    setColor(position, color);
+
+    for (i = 1; i < width; i++)
     {
-        setColor(i, color);
+        setColor(position + i, color);
+        setColor(position - i, color);
     }
-}
-
-function setColorLeft(color) {
-    var min = (num_leds / 3 * 2) + 1;
-    var max = num_leds;
-
-    setColors(min, max, color);
-}
-
-function setColorRight(color) {
-    var min = 1;
-    var max = (num_leds / 3) + 1;
-
-    setColors(min, max, color);
-}
-
-function setColorMiddle(color) {
-    var min = num_leds / 3;
-    var max = (num_leds / 3 * 2) + 1;
-
-    setColors(min, max, color);
 }
 
 function setOff() {
-    var r = 0
-    var b = 0
-    var g = 0
-    for (var i = 0; i < num_leds; i++) {
+    var r = 0;
+    var b = 0;
+    var g = 0;
+
+    for (var i = 0; i < num_leds; i++) 
+    {
         element.setColorEmbedded(i,r,g,b,'null');
     }
 }
-
-
-

@@ -11,60 +11,43 @@ function start()
 
 function buttonPressed(evt)
 {
-	setColors(evt.x, evt.y);
+		console.log("setColors");
+
+	var color = colorFromX(evt.x, evt.y);
+	console.log(color);
+	var position = positionFromY(evt.x, evt.y);
+	setColors(position, color);
 }
 
-function setColors(x, y){
-	var color,
+function colorFromX(x, y)
+{
+	var color = {r: 0, g: 0, b: 0},
+		fraction,
+		xmin = 0,
+		xmax = 318,
+		colormax = 100;
+
+			console.log("colorFromX");
+
+
+	fraction = x / xmax;
+
+	color.r = fraction * colormax;
+	color.g = 10;
+	color.b = (1 - fraction) * colormax;
+	console.log(fraction, color.r, color.b);
+	return color;
+}
+
+function positionFromY(x, y)
+{
+	var position,
 		ymin = 0,
 		ymax = 555,
-		xmin = 0,
-		xmax = 318;
+		ledMax = 150,
+		fraction = y / ymax;
 
-	var red = [100, 0, 0],
-		green = [0, 100, 0],
-		blue = [0, 0, 100];
+	position = Math.round(fraction * ledMax);
 
-
-	if (x > xmax / 3 * 2)
-	{
-		color = red;
-	}
-	else if (x > xmax / 3)
-	{
-		color = green;
-	}
-	else
-	{
-		color = blue;
-	}
-
-	if (y > ymax / 3 * 2)
-	{
-		console.log('left: ', color);
-		setColorLeft(color);
-	}
-	else if (y > ymax / 3)
-	{
-		console.log('middle', color);
-		setColorMiddle(color);
-	}
-	else {
-		console.log('right', color);
-		setColorRight(color);
-	if (y > 370)
-	{
-		console.log('red');
-		setColorAll('red');
-	}
-	else if (y > 185)
-	{
-		console.log('green')
-		setColorAll('green');
-	}
-	else
-	{
-		console.log('blue');
-		setColorAll('blue');
-	}
+	return position;
 }
