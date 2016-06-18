@@ -15,6 +15,7 @@ function buttonPressed(evt)
 }
 
 function setColors(x, y){
+<<<<<<< HEAD
 	var color,
 		ymin = 0,
 		ymax = 555,
@@ -26,5 +27,19 @@ function setColors(x, y){
 		blue = [0, 0, 100];
 
 
-	
+	if (y > 370)
+	{
+		console.log('red');
+		setColorAll('red');
+	}
+	else if (y > 185)
+	{
+		console.log('green')
+		setColorAll('green');
+	}
+	else
+	{
+		console.log('blue');
+		setColorAll('blue');
+	}
 }
