@@ -4,18 +4,11 @@
     <script src="BFt.js" type="text/javascript"></script>
     <script src="utils.js" type="text/javascript"></script>
     <script src="led.js" type="text/javascript"></script>
-    <script>
-    var element=new BFtObject();
-    $(function(){
-    element.start("172.16.27.34");
-    }); 
-    </script>
   </head>
   <body>
-    <button onclick="
-    var max_num = 145
-    for (var i = 0; i < max_num; i++) {
-        element.setColorEmbedded(i,100,0,0,'null');
-    }">Go</button>
+    <button onclick="setOff()">Off</button>
+    <button onclick="setColorAll('blue')">All Blue</button>
+    <button onclick="setColorAll('red')">All Red</button>
+    <button onclick="setColorAll('green')">All Green</button>
   </body>
 </html>
