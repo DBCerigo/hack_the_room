@@ -46,6 +46,13 @@ function magnetometerEvent(meter, intensity){
     }
 
     if (!locked) {
+        // turn off previous light
+        if (led_back === false){
+            element.setColorEmbedded(led_n + 1,0,0,0,'null')
+        }
+        else if (led_back === true){
+            element.setColorEmbedded(led_n - 1,0,0,0,'null')
+        }
         // light led
         element.setColorEmbedded(led_n,r,g,b,'null')
 
