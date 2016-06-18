@@ -26,6 +26,12 @@ var b_back = false
 var prev_val = 0
 var diff = 0
 
+var locked = true
+var num_up = 10
+var cum_num_up = 0
+
+
+YES
 
 function magnetometerEvent(meter, intensity){
     // turn off previous light
