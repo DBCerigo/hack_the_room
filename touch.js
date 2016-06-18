@@ -52,5 +52,20 @@ function setColors(x, y){
 	else {
 		console.log('right', color);
 		setColorRight(color);
+
+	if (y > 370)
+	{
+		console.log('red');
+		setColorAll('red');
+	}
+	else if (y > 185)
+	{
+		console.log('green')
+		setColorAll('green');
+	}
+	else
+	{
+		console.log('blue');
+		setColorAll('blue');
 	}
 }
