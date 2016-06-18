@@ -8,25 +8,14 @@ $(function(){
 var num_leds = 150;
 
 function setColor(n, color) {
-    var r = 0,
-        g = 0,
-        b = 0;
+    var maxIntensity = 100,
+        r = color[0],
+        g = color[1],
+        b = color[2];
 
-    if (color == 'red')
-    {
-        r = 100;
-    }
-    else if (color == 'blue')
-    {
-        b = 100;
-    }
-    else if (color == 'green')
-    {
-        g = 100;
-    }
-    else {
-        console.log('color must red, green or blue')
-        return
+    if (r > maxIntensity || g > maxIntensity || b > maxIntensity) {
+        console.log('value must be between 0 and 100');
+        return;
     }
     element.setColorEmbedded(n, r, g, b, 'null');
 }
