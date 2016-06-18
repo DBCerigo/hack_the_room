@@ -31,50 +31,43 @@ var num_up = 10
 var cum_num_up = 0
 
 
-YES
-
 function magnetometerEvent(meter, intensity){
-    // turn off previous light
-    if (led_back === false){
-        element.setColorEmbedded(led_n + 1,0,0,0,'null')
+    if (cum_num_up == num_up){
+        locked = true
+        cum_num_up = 0
     }
-    else if (led_back === true){
-        element.setColorEmbedded(led_n - 1,0,0,0,'null')
-    }
-    // light led
-    element.setColorEmbedded(led_n,r,g,b,'null')
-
-    console.log(meter)
-    console.log(intensity)
 
     val = intensity
     //get new diff
     diff = Math.abs(prev_val - val) * 2
-    if (diff < 25) {
-        diff = 0
-    }
     prev_val = val
-    console.log(val)
-    console.log(diff)
-    console.log(prev_val)
+    if (diff > 25) {
+        locked = false
+    }
 
-    // update led number and new color
-    nextLed()
-    col_num = Math.floor((Math.random() * 3) + 1);
-    if (col_num == 1){
-        col_array = nextColor(r, r_back)
-        r = col_array[0]
-        r_back = col_array[1]
-    }
-    else if (col_num == 2){
-        col_array = nextColor(g, g_back)
-        g = col_array[0]
-        g_back = col_array[1]
-    }
-    else if (col_num == 3){
-        col_array = nextColor(b, b_back)
-        b = col_array[0]
-        b_back = col_array[1]
+    if (!locked) {
+        // light led
+        element.setColorEmbedded(led_n,r,g,b,'null')
+
+        // update led number and new color
+        nextLed()
+        col_num = Math.floor((Math.random() * 3) + 1);
+        if (col_num == 1){
+            col_array = nextColor(r, r_back)
+            r = col_array[0]
+            r_back = col_array[1]
+        }
+        else if (col_num == 2){
+            col_array = nextColor(g, g_back)
+            g = col_array[0]
+            g_back = col_array[1]
+        }
+        else if (col_num == 3){
+            col_array = nextColor(b, b_back)
+            b = col_array[0]
+            b_back = col_array[1]
+        }
+        cum_num_up = cum_num_up + 1
     }
 }
 
