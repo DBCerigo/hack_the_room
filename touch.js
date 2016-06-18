@@ -15,19 +15,23 @@ function buttonPressed(evt)
 }
 
 function setColors(x, y){
+	var red = [100, 0, 0],
+		green = [0, 100, 0],
+		blue = [0, 0, 100];
+
 	if (y > 370)
 	{
 		console.log('red');
-		setColorAll('red');
+		setColorAll(red);
 	}
 	else if (y > 185)
 	{
 		console.log('green')
-		setColorAll('green');
+		setColorAll(green);
 	}
 	else
 	{
 		console.log('blue');
-		setColorAll('blue');
+		setColorAll(blue);
 	}
 }
