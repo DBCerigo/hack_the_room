@@ -24,7 +24,7 @@ function setColorAll(color) {
         console.log('color must red, green or blue')
         return
     }
-    for (var i = 0; i < max_num; i++) {
+    for (var i = 0; i < num_leds; i++) {
         element.setColorEmbedded(i,r,g,b,'null');
     }
 }
@@ -33,8 +33,10 @@ function setOff() {
     var r = 0
     var b = 0
     var g = 0
-    for (var i = 0; i < max_num; i++) {
+    for (var i = 0; i < num_leds; i++) {
         element.setColorEmbedded(i,r,g,b,'null');
     }
 }
+
+
 
