@@ -26,5 +26,31 @@ function setColors(x, y){
 		blue = [0, 0, 100];
 
 
+	if (x > xmax / 3 * 2)
+	{
+		color = red;
+	}
+	else if (x > xmax / 3)
+	{
+		color = green;
+	}
+	else
+	{
+		color = blue;
+	}
 
+	if (y > ymax / 3 * 2)
+	{
+		console.log('left: ', color);
+		setColorLeft(color);
+	}
+	else if (y > ymax / 3)
+	{
+		console.log('middle', color);
+		setColorMiddle(color);
+	}
+	else {
+		console.log('right', color);
+		setColorRight(color);
+	}
 }
