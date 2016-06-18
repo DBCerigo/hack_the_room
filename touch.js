@@ -2,7 +2,7 @@ var phone = new BFtObject();
 $(function(){
     phone.start("172.16.27.64");
     window.setTimeout(function(){start()} , 1000);
-});
+}); 
 
 function start()
 {
@@ -52,7 +52,6 @@ function setColors(x, y){
 	else {
 		console.log('right', color);
 		setColorRight(color);
-
 	if (y > 370)
 	{
 		console.log('red');
