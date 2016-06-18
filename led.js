@@ -5,7 +5,7 @@ $(function(){
     element.start("172.16.27.34");
 }); 
 
-var num_leds = 200
+var num_leds = 150
 
 function setColorAll(color) {
     var r = 0
