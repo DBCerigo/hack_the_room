@@ -1,12 +1,33 @@
 var phone = new BFtObject();
 $(function(){
     phone.start("172.16.27.64");
-
-    window.setTimeout(function(){phone.registerTouch()} , 1000);
+    window.setTimeout(function(){start()} , 1000);
 });
 
+function start()
+{
+	phone.registerTouch();
+}
 
 function buttonPressed(evt)
 {
-	console.log(evt);
+	setColors(evt.x, evt.y);
+}
+
+function setColors(x, y){
+	if (y > 370)
+	{
+		console.log('red');
+		setColorAll('red');
+	}
+	else if (y > 185)
+	{
+		console.log('green')
+		setColorAll('green');
+	}
+	else
+	{
+		console.log('blue');
+		setColorAll('blue');
+	}
 }
